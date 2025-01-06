@@ -30,7 +30,7 @@ function playGame(gameId) {
     // Simuliert eine Entscheidungszeit
     setTimeout(() => {
         if (gameId === 'who-loves-more') {
-            resultElement.textContent = 'Kote loves Kristine more ❤️';
+            resultElement.textContent = 'Kote loves Kris more ❤️';
         } else if (gameId === 'spend-time') {
             resultElement.textContent = 'Hubby ❤️';
         }
