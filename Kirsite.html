@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Kristine's Birthday App</title>
+    <link rel="stylesheet" href="styles_base.css">
+    <link rel="stylesheet" href="styles_header.css">
+    <link rel="stylesheet" href="styles_main.css">
+    <link rel="stylesheet" href="styles_footer.css">
+    <link rel="stylesheet" href="styles_minigames.css">
+    <link rel="stylesheet" href="styles_love-nest.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🎉 Kristine's App</div>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#photo-gallery">Photo Gallery</a></li>
+                <li><a href="#minigames">Minigames</a></li>
+                <li><a href="#shopping-list">Shopping List</a></li>
+                <li><a href="#favorite-links">Favorite Links</a></li>
+                <li><a href="#love-nest">Love Nest</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="photo-gallery">
+            <h1>Photo Gallery</h1>
+            <p>Coming soon: A collection of your favorite memories.</p>
+        </section>
+
+        <section id="minigames">
+            <h1>Minigames</h1>
+            <button class="minigame-button" onclick="openMinigamePopup()">Play Minigames</button>
+            <div id="minigame-popup" class="popup hidden">
+                <div class="popup-content">
+                    <span class="close-button" onclick="closeMinigamePopup()">&times;</span>
+                    <div class="game-selection">
+                        <h2>Select a Game</h2>
+                        <button class="game-option" style="margin-bottom: 1.5rem;" onclick="selectMinigame('who-loves-more')">Who Loves More?</button>
+                        <button class="game-option" style="margin-bottom: 2rem;" onclick="selectMinigame('spend-time')">Who Should I Spend Time With?</button>
+                    </div>
+                    <div class="minigame-container" id="who-loves-more" style="display: none;">
+                        <div class="minigame-title">Who Loves More?</div>
+                        <p>Possible Outcomes:</p>
+                        <ul>
+                            <li>Kote loves Kris more ❤️</li>
+                            <li>Kris loves Kote more ❤️</li>
+                            <li>We both love each other equally ❤️</li>
+                        </ul>
+                        <button class="minigame-button" onclick="playGame('who-loves-more')">Find Out!</button>
+                        <div id="who-loves-more-result" class="minigame-result"></div>
+                    </div>
+        
+                    <div class="minigame-container" id="spend-time" style="display: none;">
+                        <div class="minigame-title">Who Should I spend time with?</div>
+                        <p>Possible Outcomes:</p>
+                        <ul>
+                            <li>Friends ❤️</li>
+                            <li>Family ❤️</li>
+                            <li>Hubby ❤️</li>
+                        </ul>
+                        <button class="minigame-button" onclick="playGame('spend-time')">Decide!</button>
+                        <div id="spend-time-result" class="minigame-result"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="shopping-list">
+            <h1>Shopping List</h1>
+            <p>Coming soon: Create and manage your personal shopping lists.</p>
+        </section>
+
+        <section id="favorite-links">
+            <h1>Favorite Links</h1>
+            <p>Coming soon: Quick access to your favorite websites.</p>
+        </section>
+
+        <section id="love-nest">
+            <h1>Our Love Nest <button class="toggle-button" onclick="toggleLoveNest()">^</button></h1>
+            <div id="love-nest-content" class="hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d307.9907731020492!2d44.83970599007584!3d41.677502940036725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440c37ee7672eb%3A0xe1575316f352b5e0!2s1a%20Solomon%20Dodashvili%20St%2C%20T&#39;bilisi%2C%20Georgien!5e1!3m2!1sde!2sde!4v1736147897726!5m2!1sde!2sde" width="600" height="450" style="border:0; width:100%; max-width:600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Created with ❤️ for Kristine</p>
+    </footer>
+
+    <script src="KriScript.js"></script>
+</body>
+</html>

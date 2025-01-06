@@ -1,0 +1,42 @@
+.hidden {
+    display: none;
+}
+
+.toggle-button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    top: -5px;
+}
+
+.toggle-button:hover {
+    background-color: #3700b3;
+    transform: scale(1.1);
+}
+
+#love-nest-content {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+#love-nest-content.hidden {
+    max-height: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
