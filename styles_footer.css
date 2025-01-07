@@ -10,3 +10,13 @@ footer {
 footer p {
     margin: 0;
 }
+
+.instagram-icon i {
+    color: #6c63ff; /* Farbe an den Header anpassen */
+    font-size: 1.2rem; /* Größe des Icons */
+    transition: color 0.3s ease; /* Glatter Farbwechsel bei Hover */
+}
+
+.instagram-icon i:hover {
+    color: #fff; /* Farbe beim Hover ändern, z. B. auf Weiß */
+}
