@@ -1,7 +1,6 @@
 const API_URL = "https://api.jsonbin.io/v3/b/677e1776acd3cb34a8c5e7d7";
 const API_KEY = "$2a$10$TX3tFFDLtg0/Yhwt.n/BZOqGfEIsf1ZmahqOqLJlzE/FCszaHVg3C";
 
-
 function addItem() {
     const itemInput = document.getElementById("shopping-item");
     const itemValue = itemInput.value.trim();
