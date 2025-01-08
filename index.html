@@ -33,13 +33,18 @@
     
     
     <main>
-        <section id="photo-gallery">
-            <h1>Photo Gallery</h1>
-            <p>
-                <a href="https://photos.app.goo.gl/hNgsWExybVxbWBzB9" target="_blank" class="minigame-button">Our memories</a>
-            </p>
-        </section>
-        
+
+        <section id="shopping-list">
+            <h1>Shopping List</h1>
+            <p>Add items to your shopping list and keep track of what you need.</p>
+            <div>
+                <input type="text" id="shopping-item" placeholder="Enter an item" 
+                    style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd; margin-right: 0.5rem;" />
+                <button class="minigame-button" onclick="addItem()">Add</button>
+            </div>
+            <ul id="shopping-list-items" style="list-style-type: none; padding: 0;"></ul>
+        </section>        
+
 
         <section id="minigames">
             <h1>Minigames</h1>
@@ -83,20 +88,15 @@
                 </div>
             </div>
         </section>
+
+         <section id="photo-gallery">
+            <h1>Photo Gallery</h1>
+            <p>
+                <a href="https://photos.app.goo.gl/hNgsWExybVxbWBzB9" target="_blank" class="minigame-button">Our memories</a>
+            </p>
+        </section>
         
         
-
-        <section id="shopping-list">
-            <h1>Shopping List</h1>
-            <p>Add items to your shopping list and keep track of what you need.</p>
-            <div>
-                <input type="text" id="shopping-item" placeholder="Enter an item" 
-                    style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd; margin-right: 0.5rem;" />
-                <button class="minigame-button" onclick="addItem()">Add</button>
-            </div>
-            <ul id="shopping-list-items" style="list-style-type: none; padding: 0;"></ul>
-        </section>        
-
         <section id="favorite-links">
             <h1>Favorite Links</h1>
             <p>Coming soon: Quick access to your favorite websites.</p>
