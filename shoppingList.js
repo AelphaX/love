@@ -84,3 +84,10 @@ function addItemToList(item, id) {
 }
 
 
+document.getElementById("shopping-item").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addItem(); // Ruft die Funktion zum Hinzufügen des Items auf
+        event.preventDefault(); // Verhindert, dass die Enter-Taste ein Formular absendet (falls eines vorhanden ist)
+    }
+});
+
