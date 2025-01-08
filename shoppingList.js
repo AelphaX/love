@@ -90,4 +90,3 @@ document.getElementById("shopping-item").addEventListener("keydown", (event) => 
         event.preventDefault(); // Verhindert, dass die Enter-Taste ein Formular absendet (falls eines vorhanden ist)
     }
 });
-
