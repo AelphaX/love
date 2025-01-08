@@ -1,110 +1,86 @@
-const API_URL = "https://api.jsonbin.io/v3/b/677e1776acd3cb34a8c5e7d7";
-const API_KEY = "$2a$10$TX3tFFDLtg0/Yhwt.n/BZOqGfEIsf1ZmahqOqLJlzE/FCszaHVg3C";
+const API_URL = "https://677ec64d94bde1c1252d7d2b.mockapi.io/shoppingList";
 
+// Funktion zum Laden der Einkaufsliste
+function loadShoppingList() {
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById("shopping-list-items");
+            list.innerHTML = ""; // Liste leeren
+
+            data.forEach(item => {
+                addItemToList(item.item, item.id); // Items zur DOM hinzufügen
+            });
+        })
+        .catch(error => console.error("Error loading shopping list:", error));
+}
+
+// Funktion zum Hinzufügen eines Items
 function addItem() {
     const itemInput = document.getElementById("shopping-item");
     const itemValue = itemInput.value.trim();
 
     if (itemValue) {
         fetch(API_URL, {
-            method: "GET",
-            headers: {
-                "X-Master-Key": API_KEY
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const shoppingList = data.record.shoppingList || [];
-            const updatedItems = [...shoppingList, itemValue];
-            return fetch(API_URL, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-Master-Key": API_KEY
-                },
-                body: JSON.stringify({ shoppingList: updatedItems })
-            });
-        })
-        .then(() => {
-            addItemToList(itemValue);
-            itemInput.value = ""; // Eingabefeld leeren
-        })
-        .catch(error => console.error("Error adding item:", error));
-    }
-}
-function removeItem(itemToRemove) {
-    fetch(API_URL, {
-        method: "GET",
-        headers: {
-            "X-Master-Key": API_KEY
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const shoppingList = data.record.shoppingList || [];
-        const updatedItems = shoppingList.filter(item => item !== itemToRemove);
-
-        return fetch(API_URL, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "X-Master-Key": API_KEY
             },
-            body: JSON.stringify({ shoppingList: updatedItems })
-        });
-    })
-    .then(() => {
-        // Entferne das Item direkt aus der DOM-Liste
-        const list = document.getElementById("shopping-list-items");
-        const listItem = [...list.children].find(li => li.textContent.includes(itemToRemove));
-        if (listItem) list.removeChild(listItem);
-
-        console.log(`Item "${itemToRemove}" removed successfully.`);
-    })
-    .catch(error => console.error("Error removing item:", error));
+            body: JSON.stringify({ item: itemValue }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                loadShoppingList(); // Liste neu laden
+                itemInput.value = ""; // Eingabefeld leeren
+            })
+            .catch(error => console.error("Error adding item:", error));
+    }
 }
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    fetch(API_URL, {
-        headers: {
-            "X-Master-Key": API_KEY
-        }
+// Funktion zum Entfernen eines Items
+function removeItem(itemToRemove, itemId) {
+    fetch(`${API_URL}/${itemId}`, {
+        method: "DELETE",
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Loaded data from JSONBin:", data); // Debugging: Zeigt die geladenen Daten
-        const items = data.record.shoppingList || [];
-        items.forEach(item => {
-            addItemToList(item);
-        });
-    })
-    .catch(error => console.error("Error loading shopping list:", error));
-});
+        .then(() => {
+            loadShoppingList(); // Liste neu laden
+        })
+        .catch(error => console.error("Error removing item:", error));
+}
 
-function addItemToList(item) {
+// Regelmäßiges Polling einrichten
+setInterval(loadShoppingList, 2000); // Alle 2 Sekunden die Liste aktualisieren
+
+// Initiale Liste laden
+document.addEventListener("DOMContentLoaded", loadShoppingList);
+
+// Funktion zum Hinzufügen eines Items zur DOM
+function addItemToList(item, id) {
     const list = document.getElementById("shopping-list-items");
 
-    // Erstelle ein Listenelement
     const listItem = document.createElement("li");
+    listItem.style.display = "flex";
+    listItem.style.alignItems = "center";
+    listItem.style.marginBottom = "0.5rem";
 
-    // Text für das Item
     const itemText = document.createElement("span");
     itemText.textContent = item;
-    itemText.style.flex = "1"; // Text füllt den restlichen Platz
+    itemText.style.flex = "1";
 
-    // Entfernen-Button erstellen
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Remove";
-    deleteButton.className = "minigame-button"; // Gleicher Stil wie Add-Button
-    deleteButton.onclick = () => {
-        list.removeChild(listItem); // Entferne das Element aus der DOM-Liste
-        removeItem(item); // API-Aufruf zum Entfernen
-    };
+    deleteButton.style.backgroundColor = "#6200ea";
+    deleteButton.style.color = "white";
+    deleteButton.style.border = "none";
+    deleteButton.style.padding = "0.5rem";
+    deleteButton.style.borderRadius = "5px";
+    deleteButton.style.cursor = "pointer";
 
-    // Elemente zusammenfügen
+    deleteButton.onclick = () => removeItem(item, id);
+
     listItem.appendChild(itemText);
     listItem.appendChild(deleteButton);
     list.appendChild(listItem);
 }
+
 
