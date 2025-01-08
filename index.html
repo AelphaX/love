@@ -7,7 +7,6 @@
     <title>Kristine's Birthday App</title>
     <link rel="stylesheet" href="styles_base.css">
     <link rel="stylesheet" href="styles_header.css">
-    <link rel="stylesheet" href="styles_main.css">
     <link rel="stylesheet" href="styles_footer.css">
     <link rel="stylesheet" href="styles_minigames.css">
     <link rel="stylesheet" href="styles_love-nest.css">
@@ -92,12 +91,12 @@
             <h1>Shopping List</h1>
             <p>Add items to your shopping list and keep track of what you need.</p>
             <div>
-                <input type="text" id="shopping-item" placeholder="Enter an item" style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd; margin-right: 0.5rem;" />
+                <input type="text" id="shopping-item" placeholder="Enter an item" 
+                    style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd; margin-right: 0.5rem;" />
                 <button class="minigame-button" onclick="addItem()">Add</button>
             </div>
-            <ul id="shopping-list-items" style="list-style-type: none; padding: 0;">
-            </ul>
-        </section>
+            <ul id="shopping-list-items" style="list-style-type: none; padding: 0;"></ul>
+        </section>        
 
         <section id="favorite-links">
             <h1>Favorite Links</h1>
@@ -105,11 +104,19 @@
         </section>
 
         <section id="your-home">
-            <h1>Your Home <button class="toggle-button" onclick="toggleYourHome()">^</button></h1>
+            <h1>
+              Your Home
+              <button class="toggle-button" onclick="toggleYourHome()">^</button>
+            </h1>
             <div id="your-home-content" class="hidden">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d270.48120066549217!2d8.602109467459117!3d49.00934170000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47970ae4aba87ffb%3A0x117e1fe549ecdceb!2sSchillerstra%C3%9Fe%2022%2C%2075045%20Walzbachtal!5e1!3m2!1sde!2sde!4v1736178134236!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d270.48120066549217!2d8.602109467459117!3d49.00934170000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47970ae4aba87ffb%3A0x117e1fe549ecdceb!2sSchillerstra%C3%9Fe%2022%2C%2075045%20Walzbachtal!5e1!3m2!1sde!2sde!4v1736178134236!5m2!1sde!2sde"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-        </section>
+          </section>
     </main>
 
     <footer>
@@ -125,3 +132,4 @@
     <script src="shoppingList.js"></script>
 </body>
 </html>
+
