@@ -11,10 +11,13 @@
     <link rel="stylesheet" href="styles_minigames.css">
     <link rel="stylesheet" href="styles_love-nest.css">
     <link rel="stylesheet" href="styles_photo-galery.css">
+    <link rel="stylesheet" href="styles_love_counter.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
+
 <body>
     <header>
         <nav>
@@ -25,7 +28,7 @@
                 <li><a href="#photo-gallery">Photo Gallery</a></li>
                 <li><a href="#minigames">Minigames</a></li>
                 <li><a href="#shopping-list">Shopping List</a></li>
-                <li><a href="#favorite-links">Favorite Links</a></li>
+                <li><a href="#love-counter">Favorite Links</a></li>
                 <li><a href="#your-home">Your Home</a></li>
             </ul>
         </nav>
@@ -96,10 +99,31 @@
         </section>
         
         
-        <section id="favorite-links">
-            <h1>Favorite Links</h1>
-            <p>Coming soon: Quick access to your favorite websites.</p>
+        <section id="love-counter">
+            <h1>Love Counter</h1>
+            <div class="counter-box">
+                <h2>We've been together for:</h2>
+                <p id="days-counter" class="main-counter">Loading...</p>
+                <p id="detailed-counter" class="small-counter">...</p>
+            </div>
+        
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Years</h3>
+                    <p id="years-counter">...</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Months</h3>
+                    <p id="months-counter">...</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Weeks</h3>
+                    <p id="weeks-counter">...</p>
+                </div>
+            </div>
         </section>
+        
+        
 
         <section id="your-home">
             <h1>
@@ -128,6 +152,6 @@
 
     <script src="KriScript.js"></script>
     <script src="shoppingList.js"></script>
+    <script src="loveCounter.js"></script>
 </body>
 </html>
-
