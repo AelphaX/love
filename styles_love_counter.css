@@ -1,3 +1,12 @@
+/* Allgemeine Stile */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Counter Box */
 .counter-box {
     background: linear-gradient(135deg, #a18cd1, #fbc2eb);
     color: white;
@@ -20,11 +29,15 @@
     margin-top: 10px;
 }
 
+/* Grid-Container für Jahre, Monate, Wochen */
 .grid-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Umbrüche bei kleinen Bildschirmen */
+    justify-content: center; /* Elemente zentrieren */
     gap: 10px;
     margin-top: 15px;
+    max-width: 100%; /* Kein Scrollen */
+    padding: 0 10px;
 }
 
 .grid-item {
@@ -34,23 +47,43 @@
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex: 1;
-    aspect-ratio: 1 / 1; /* Erzwingt quadratische Felder */
-    min-height: 100px; /* Mindesthöhe setzen, um Überlänge zu vermeiden */
-    max-height: 120px; /* Obergrenze setzen, damit die Felder nicht zu lang werden */
+    aspect-ratio: 1 / 1; /* Quadratische Felder */
+    min-height: 100px;
+    max-height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 30%; /* Flexibles Layout für verschiedene Geräte */
+    max-width: 33%;
 }
 
+/* Titel in Grid-Elementen */
 .grid-item h3 {
     margin-bottom: 5px;
     font-size: 1rem;
     color: #7a3db8;
 }
 
+/* Werte in Grid-Elementen */
 .grid-item p {
     font-size: 1.6rem;
     font-weight: bold;
     color: #333;
+}
+
+/* Responsive Design für Handys */
+@media (max-width: 600px) {
+    .grid-item {
+        min-width: 45%; /* 2 Elemente nebeneinander */
+        max-width: 45%;
+    }
+}
+
+/* Noch kleinere Bildschirme: 1 Spalte */
+@media (max-width: 400px) {
+    .grid-item {
+        min-width: 100%;
+        max-width: 100%;
+    }
 }
