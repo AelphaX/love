@@ -32,7 +32,6 @@ body {
 /* Grid-Container für Jahre, Monate, Wochen */
 .grid-container {
     display: flex;
-    flex-wrap: wrap; /* Umbrüche bei kleinen Bildschirmen */
     justify-content: center; /* Elemente zentrieren */
     gap: 10px;
     margin-top: 15px;
@@ -54,8 +53,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 30%; /* Flexibles Layout für verschiedene Geräte */
-    max-width: 33%;
+    max-width: 150px; /* Feste Breite für gleichmäßige Darstellung */
 }
 
 /* Titel in Grid-Elementen */
@@ -74,9 +72,11 @@ body {
 
 /* Responsive Design für Handys */
 @media (max-width: 600px) {
+    .grid-container {
+        flex-wrap: wrap; /* Umbrüche nur bei kleinen Bildschirmen */
+    }
     .grid-item {
-        min-width: 45%; /* 2 Elemente nebeneinander */
-        max-width: 45%;
+        min-width: 30%; /* Sicherstellen, dass drei Elemente nebeneinander bleiben */
     }
 }
 
