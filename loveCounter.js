@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Berechnung der Zeitdifferenz
         const diffTime = now.getTime() - startDate.getTime();
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))+1;
 
         // **Exakte Stunden berechnen OHNE Zeitzonenfehler**
         const remainingTime = diffTime - (diffDays * 24 * 60 * 60 * 1000);
