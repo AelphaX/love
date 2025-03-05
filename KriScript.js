@@ -122,4 +122,36 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+//Timer!!
+
+document.addEventListener("DOMContentLoaded", function () {
+    function updateCountdown() {
+        // Zielzeit: 31. März 2025, 01:55 Uhr (Georgische Zeit)
+        const targetTime = new Date(Date.UTC(2025, 2, 30, 21, 55, 0)); // UTC-Zeit für 01:55 Uhr georgischer Zeit (GMT+4)
+
+        const now = new Date(); // Aktuelle Zeit
+        const diffTime = targetTime - now; // Differenz in Millisekunden
+
+        if (diffTime <= 0) {
+            document.getElementById("countdown-display").textContent = "🎉 It's time!";
+            return;
+        }
+
+        const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown-display").textContent = 
+            `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    }
+
+    // Starte den Countdown und aktualisiere ihn jede Sekunde
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+});
+
+
+
+
 
