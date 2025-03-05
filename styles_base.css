@@ -56,3 +56,23 @@ section h1 {
     flex: 1; /* Text nimmt den verfügbaren Platz ein */
     margin-right: 1rem;
 }
+
+#countdown-timer {
+  text-align: center;
+  background: #ffeb3b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.countdown-box {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d32f2f;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
