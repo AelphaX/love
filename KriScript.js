@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
     function updateCountdown() {
         // Zielzeit: 31. März 2025, 01:55 Uhr (Georgische Zeit)
-        const targetTime = new Date(Date.UTC(2025, 2, 30, 21, 55, 0)); // UTC-Zeit für 01:55 Uhr georgischer Zeit (GMT+4)
+        const targetTime = new Date(Date.UTC(2025, 6, 2, 3, 55, 0)); // UTC-Zeit für 01:55 Uhr georgischer Zeit (GMT+4)
 
         const now = new Date(); // Aktuelle Zeit
         const diffTime = targetTime - now; // Differenz in Millisekunden
